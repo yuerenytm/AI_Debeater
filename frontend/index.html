@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI辩论器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-glow"></div>
+      <h1 class="title">⚔️ AI辩论器</h1>
+      <p class="subtitle">AI 自动辩论器 · 正方 vs 反方 · 大法官终审</p>
+    </header>
+
+    <section class="control-panel">
+      <div class="control-row">
+        <div class="field field-topic">
+          <label for="topic">辩论主题</label>
+          <input id="topic" type="text" placeholder="例如：歌手的真正实力应该看调音前（大家都不调音）还是调音后（都调音）？" />
+        </div>
+        <div class="field">
+          <label for="pro-model">正方模型</label>
+          <select id="pro-model"></select>
+        </div>
+        <div class="field">
+          <label for="con-model">反方模型</label>
+          <select id="con-model"></select>
+        </div>
+        <button id="start-btn" class="btn-start">🔥 开始激辩</button>
+      </div>
+    </section>
+
+    <section class="arena">
+      <div class="arena-col arena-pro">
+        <div class="arena-header">
+          <span class="arena-icon">🔵</span>
+          <h2>正方</h2>
+        </div>
+        <div id="pro-messages" class="messages"></div>
+      </div>
+      <div class="arena-divider">
+        <div class="vs-badge">VS</div>
+      </div>
+      <div class="arena-col arena-con">
+        <div class="arena-header">
+          <span class="arena-icon">🔴</span>
+          <h2>反方</h2>
+        </div>
+        <div id="con-messages" class="messages"></div>
+      </div>
+    </section>
+
+    <section id="referee-section" class="referee-section hidden">
+      <div class="referee-header">
+        <div class="referee-emblem">⚖️</div>
+        <div>
+          <h2 class="referee-title">思辨终审报告</h2>
+          <p class="referee-subtitle">大法官 · 明判胜负 · 客观总结</p>
+        </div>
+      </div>
+
+      <div id="referee-loading" class="referee-loading hidden">
+        <div class="gavel-animation">
+          <span class="gavel">🔨</span>
+        </div>
+        <p class="loading-text">法官终审中</p>
+        <div class="loading-dots"><span></span><span></span><span></span></div>
+      </div>
+
+      <div id="referee-report" class="referee-report hidden">
+        <div class="report-meta">
+          <span id="report-topic" class="report-topic"></span>
+          <span class="report-badge">终审完成</span>
+        </div>
+        <div id="report-sections" class="report-sections"></div>
+        <div id="report-raw" class="report-raw"></div>
+      </div>
+    </section>
+
+    <div id="empty-state" class="empty-state">
+      <p>👆 输入辩题，选择模型，点击「开始激辩」启动四回合 AI 辩论</p>
+    </div>
+
+    <p class="photo-credit">背景 · 杭州西湖</p>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
